@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         app:submerged_textColor="#ffffff"
         app:center_textColor="#00695C"
+        app:bindingText="bottom_text"
         app:stroke_width="4dp"
         app:bottom_text="40%"
         app:center_text="10"

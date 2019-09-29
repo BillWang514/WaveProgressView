@@ -21,7 +21,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Created by BlueFire on 2019/9/26  10:56
- * Describe:动态波浪进度球
+ * Describe:
  */
 public class WaveProgressView extends View {
 
@@ -128,6 +128,23 @@ public class WaveProgressView extends View {
         textRect = new Rect();
         cirPath = new Path();
         array.recycle();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthMode =  MeasureSpec.getMode(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST){
+            int size = dp2px(mContext,150);
+            setMeasuredDimension(size, size);
+        }else if (widthMode == MeasureSpec.AT_MOST){
+            setMeasuredDimension(dp2px(mContext,150), MeasureSpec.getSize(heightMeasureSpec));
+        }else if (heightMode == MeasureSpec.AT_MOST){
+            int size = MeasureSpec.getSize(widthMeasureSpec);
+            setMeasuredDimension(size, size);
+        } else{
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }
     }
 
     @Override
