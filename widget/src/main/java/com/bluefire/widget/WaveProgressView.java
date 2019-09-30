@@ -215,7 +215,7 @@ public class WaveProgressView extends View {
         if (mXTwoOffset > width)
             mXTwoOffset = 0;
         if (waveHeight > 0)
-            postInvalidateDelayed(15);
+            postInvalidateDelayed(10);
     }
 
     private void resetPositionY() {
